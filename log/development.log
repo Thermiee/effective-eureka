@@ -7,3 +7,39 @@ Processing by PagesController#index as HTML
 Completed 200 OK in 425ms (Views: 402.1ms | ActiveRecord: 0.0ms | Allocations: 96443)
 
 
+Started GET "/" for ::1 at 2022-10-05 23:02:57 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 330)
+  Rendered layout layouts/application.html.erb (Duration: 91.8ms | Allocations: 5754)
+Completed 500 Internal Server Error in 108ms (ActiveRecord: 0.0ms | Allocations: 9079)
+
+
+  
+LoadError (cannot load such file -- sassc):
+  
+app/views/layouts/application.html.erb:9
+Started GET "/" for ::1 at 2022-10-05 23:04:40 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 7)
+  Rendered layout layouts/application.html.erb (Duration: 50.5ms | Allocations: 9912)
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 0.0ms | Allocations: 10182)
+
+
+  
+LoadError (cannot load such file -- sassc):
+  
+app/views/layouts/application.html.erb:9
+Started GET "/" for ::1 at 2022-10-05 23:05:42 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 330)
+  Rendered layouts/_navigation.html.erb (Duration: 12.6ms | Allocations: 133)
+  Rendered layout layouts/application.html.erb (Duration: 1842.1ms | Allocations: 183742)
+Completed 200 OK in 1857ms (Views: 1846.4ms | ActiveRecord: 0.0ms | Allocations: 187130)
+
+
