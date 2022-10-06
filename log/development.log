@@ -93,3 +93,39 @@ Processing by PagesController#index as HTML
 Completed 200 OK in 11ms (Views: 10.9ms | Allocations: 6801)
 
 
+Started GET "/" for ::1 at 2022-10-06 22:45:52 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 121)
+  Rendered layout layouts/application.html.erb (Duration: 365.0ms | Allocations: 23583)
+Completed 500 Internal Server Error in 368ms (Allocations: 24408)
+
+
+  
+ActionView::Template::Error (Error: File to import not found or unreadable: base/variables.
+        on line 5:1 of app/assets/stylesheets/application.scss
+>> @import "base/variables";
+
+   ^
+):
+     6:     <%= csrf_meta_tags %>
+     7:     <%= csp_meta_tag %>
+     8: 
+     9:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    10:     <%= javascript_importmap_tags %>
+    11:   </head>
+    12: 
+  
+app/assets/stylesheets/application.scss:5
+app/views/layouts/application.html.erb:9
+Started GET "/" for ::1 at 2022-10-06 22:46:17 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
+  Rendered layouts/_navigation.html.erb (Duration: 0.8ms | Allocations: 219)
+  Rendered layout layouts/application.html.erb (Duration: 766.1ms | Allocations: 44826)
+Completed 200 OK in 767ms (Views: 766.5ms | Allocations: 45122)
+
+
