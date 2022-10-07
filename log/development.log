@@ -159,3 +159,13 @@ Processing by PagesController#index as HTML
 Completed 200 OK in 15ms (Views: 14.7ms | Allocations: 8314)
 
 
+Started GET "/" for ::1 at 2022-10-07 10:27:35 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 7)
+  Rendered layouts/_navigation.html.erb (Duration: 0.9ms | Allocations: 54)
+  Rendered layout layouts/application.html.erb (Duration: 33.9ms | Allocations: 6669)
+Completed 200 OK in 40ms (Views: 36.1ms | Allocations: 6940)
+
+
