@@ -1,190 +1,41 @@
-Started GET "/" for 127.0.0.1 at 2022-10-04 20:03:15 +0100
-Processing by PagesController#index as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering pages/index.html.erb within layouts/application
-  Rendered pages/index.html.erb within layouts/application (Duration: 16.1ms | Allocations: 438)
-  Rendered layout layouts/application.html.erb (Duration: 377.0ms | Allocations: 91819)
-Completed 200 OK in 425ms (Views: 402.1ms | ActiveRecord: 0.0ms | Allocations: 96443)
-
-
-Started GET "/" for ::1 at 2022-10-05 23:02:57 +0100
-Processing by PagesController#index as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering pages/index.html.erb within layouts/application
-  Rendered pages/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 330)
-  Rendered layout layouts/application.html.erb (Duration: 91.8ms | Allocations: 5754)
-Completed 500 Internal Server Error in 108ms (ActiveRecord: 0.0ms | Allocations: 9079)
-
-
-  
-LoadError (cannot load such file -- sassc):
-  
-app/views/layouts/application.html.erb:9
-Started GET "/" for ::1 at 2022-10-05 23:04:40 +0100
-Processing by PagesController#index as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering pages/index.html.erb within layouts/application
-  Rendered pages/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 7)
-  Rendered layout layouts/application.html.erb (Duration: 50.5ms | Allocations: 9912)
-Completed 500 Internal Server Error in 55ms (ActiveRecord: 0.0ms | Allocations: 10182)
-
-
-  
-LoadError (cannot load such file -- sassc):
-  
-app/views/layouts/application.html.erb:9
-Started GET "/" for ::1 at 2022-10-05 23:05:42 +0100
-Processing by PagesController#index as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering pages/index.html.erb within layouts/application
-  Rendered pages/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 330)
-  Rendered layouts/_navigation.html.erb (Duration: 12.6ms | Allocations: 133)
-  Rendered layout layouts/application.html.erb (Duration: 1842.1ms | Allocations: 183742)
-Completed 200 OK in 1857ms (Views: 1846.4ms | ActiveRecord: 0.0ms | Allocations: 187130)
-
-
-Started GET "/" for ::1 at 2022-10-06 22:22:00 +0100
-Processing by PagesController#index as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering pages/index.html.erb within layouts/application
-  Rendered pages/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 330)
-  Rendered layouts/_navigation.html.erb (Duration: 4.8ms | Allocations: 128)
-  Rendered layout layouts/application.html.erb (Duration: 167.1ms | Allocations: 53542)
-Completed 200 OK in 180ms (Views: 172.4ms | ActiveRecord: 0.0ms | Allocations: 56929)
-
-
-Started GET "/" for ::1 at 2022-10-06 22:27:02 +0100
-Processing by PagesController#index as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering pages/index.html.erb within layouts/application
-  Rendered pages/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 126)
-  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | Allocations: 123)
-  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 7380)
-Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 0.0ms | Allocations: 8265)
-
-
-Started GET "/" for ::1 at 2022-10-06 22:27:15 +0100
-Processing by PagesController#index as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering pages/index.html.erb within layouts/application
-  Rendered pages/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 330)
-  Rendered layouts/_navigation.html.erb (Duration: 0.6ms | Allocations: 128)
-  Rendered layout layouts/application.html.erb (Duration: 116.7ms | Allocations: 54080)
-Completed 200 OK in 128ms (Views: 120.7ms | ActiveRecord: 0.0ms | Allocations: 57467)
-
-
-Started GET "/" for ::1 at 2022-10-06 22:41:04 +0100
-Processing by PagesController#index as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering pages/index.html.erb within layouts/application
-  Rendered pages/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 121)
-  Rendered layouts/_navigation.html.erb (Duration: 0.8ms | Allocations: 266)
-  Rendered layout layouts/application.html.erb (Duration: 79.5ms | Allocations: 7450)
-Completed 200 OK in 88ms (Views: 84.3ms | Allocations: 8328)
-
-
-Started GET "/" for ::1 at 2022-10-06 22:41:08 +0100
-Processing by PagesController#index as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering pages/index.html.erb within layouts/application
-  Rendered pages/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
-  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 54)
-  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 6521)
-Completed 200 OK in 11ms (Views: 10.9ms | Allocations: 6801)
-
-
-Started GET "/" for ::1 at 2022-10-06 22:45:52 +0100
-Processing by PagesController#index as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering pages/index.html.erb within layouts/application
-  Rendered pages/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 121)
-  Rendered layout layouts/application.html.erb (Duration: 365.0ms | Allocations: 23583)
-Completed 500 Internal Server Error in 368ms (Allocations: 24408)
-
-
-  
-ActionView::Template::Error (Error: File to import not found or unreadable: base/variables.
-        on line 5:1 of app/assets/stylesheets/application.scss
->> @import "base/variables";
-
-   ^
-):
-     6:     <%= csrf_meta_tags %>
-     7:     <%= csp_meta_tag %>
-     8: 
-     9:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    10:     <%= javascript_importmap_tags %>
-    11:   </head>
-    12: 
-  
-app/assets/stylesheets/application.scss:5
-app/views/layouts/application.html.erb:9
-Started GET "/" for ::1 at 2022-10-06 22:46:17 +0100
-Processing by PagesController#index as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering pages/index.html.erb within layouts/application
-  Rendered pages/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
-  Rendered layouts/_navigation.html.erb (Duration: 0.8ms | Allocations: 219)
-  Rendered layout layouts/application.html.erb (Duration: 766.1ms | Allocations: 44826)
-Completed 200 OK in 767ms (Views: 766.5ms | Allocations: 45122)
-
-
-Started GET "/" for ::1 at 2022-10-06 22:47:21 +0100
-Processing by PagesController#index as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering pages/index.html.erb within layouts/application
-  Rendered pages/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
-  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 54)
-  Rendered layout layouts/application.html.erb (Duration: 799.6ms | Allocations: 45675)
-Completed 200 OK in 801ms (Views: 800.2ms | Allocations: 45928)
-
-
-Started GET "/" for ::1 at 2022-10-06 22:48:34 +0100
-Processing by PagesController#index as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering pages/index.html.erb within layouts/application
-  Rendered pages/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 126)
-  Rendered layouts/_navigation.html.erb (Duration: 0.6ms | Allocations: 219)
-  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 7510)
-Completed 200 OK in 15ms (Views: 14.1ms | Allocations: 8320)
-
-
-Started GET "/" for ::1 at 2022-10-06 22:49:52 +0100
-Processing by PagesController#index as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering pages/index.html.erb within layouts/application
-  Rendered pages/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 121)
-  Rendered layouts/_navigation.html.erb (Duration: 0.6ms | Allocations: 219)
-  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 7484)
-Completed 200 OK in 15ms (Views: 14.7ms | Allocations: 8314)
-
-
-Started GET "/" for ::1 at 2022-10-07 10:27:35 +0100
-Processing by PagesController#index as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering pages/index.html.erb within layouts/application
-  Rendered pages/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 7)
-  Rendered layouts/_navigation.html.erb (Duration: 0.9ms | Allocations: 54)
-  Rendered layout layouts/application.html.erb (Duration: 33.9ms | Allocations: 6669)
-Completed 200 OK in 40ms (Views: 36.1ms | Allocations: 6940)
-
-
-  [1m[35m (257.7ms)[0m  [1m[35mCREATE DATABASE "effective_eureka_development" ENCODING = 'unicode'[0m
-  [1m[35m (3.6ms)[0m  [1m[35mCREATE DATABASE "effective_eureka_development" ENCODING = 'unicode'[0m
-  [1m[35m (31.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
-  [1m[35m (46.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
-  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6521444561908969980)[0m
-  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE DATABASE "effective_eureka_development" ENCODING = 'unicode'[0m
+  [1m[35m (52.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "effective_eureka_development"[0m
+  [1m[35m (292.9ms)[0m  [1m[35mCREATE DATABASE "effective_eureka_development" ENCODING = 'unicode'[0m
+  [1m[35m (144.1ms)[0m  [1m[35mCREATE DATABASE "effective_eureka_test" ENCODING = 'unicode'[0m
+  [1m[35m (52.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (46.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6521444561908969980)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Migrating to DeviseCreateUsers (20221007224946)
-  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (48.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
-  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
-  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
-  [1m[36mActiveRecord::SchemaMigration Create (82.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221007224946"]]
-  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
-  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-10-08 18:14:06.286112"], ["updated_at", "2022-10-08 18:14:06.286112"]]
-  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6521444561908969980)[0m
-  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (47.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221007224946"]]
+  [1m[36mTRANSACTION (40.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-10-08 18:27:51.243516"], ["updated_at", "2022-10-08 18:27:51.243516"]]
+  [1m[36mTRANSACTION (24.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6521444561908969980)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2022-10-08 19:28:20 +0100
+  
+NoMethodError (undefined method `devise_for' for #<ActionDispatch::Routing::Mapper:0x000000010ef5d458 @set=#<ActionDispatch::Routing::RouteSet:0x000000010e0ca5a8>, @draw_paths=[#<Pathname:/Users/mereoleona/Documents/Github/effective-eureka/config/routes>], @scope=#<ActionDispatch::Routing::Mapper::Scope:0x000000010ef5d408 @hash={:path_names=>{:new=>"new", :edit=>"edit"}}, @parent=#<ActionDispatch::Routing::Mapper::Scope:0x000000010d99ce48 @hash=nil, @parent=nil, @scope_level=nil>, @scope_level=nil>, @concerns={}>
+
+  devise_for :users
+  ^^^^^^^^^^):
+  
+config/routes.rb:2:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/" for ::1 at 2022-10-08 19:29:06 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 329)
+  Rendered layouts/_navigation.html.erb (Duration: 1.1ms | Allocations: 277)
+  Rendered layout layouts/application.html.erb (Duration: 233.7ms | Allocations: 75145)
+Completed 200 OK in 245ms (Views: 237.4ms | ActiveRecord: 0.0ms | Allocations: 78562)
+
+
