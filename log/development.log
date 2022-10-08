@@ -39,3 +39,14 @@ Processing by PagesController#index as HTML
 Completed 200 OK in 245ms (Views: 237.4ms | ActiveRecord: 0.0ms | Allocations: 78562)
 
 
+Started GET "/users/sign_in" for ::1 at 2022-10-08 19:29:36 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/mereoleona/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/devise-4.8.1/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/mereoleona/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/devise-4.8.1/app/views/devise/shared/_links.html.erb (Duration: 2.1ms | Allocations: 725)
+  Rendered /Users/mereoleona/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/devise-4.8.1/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 57.0ms | Allocations: 7750)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered layout layouts/application.html.erb (Duration: 77.7ms | Allocations: 14504)
+Completed 200 OK in 108ms (Views: 81.6ms | ActiveRecord: 5.3ms | Allocations: 22558)
+
+
