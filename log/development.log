@@ -156,3 +156,114 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 1444ms (Views: 1415.6ms | ActiveRecord: 5.3ms | Allocations: 222812)
 
 
+Started GET "/users/sign_in" for ::1 at 2022-10-08 19:36:50 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 133)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1884)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 45)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 8552)
+Completed 200 OK in 15ms (Views: 13.1ms | ActiveRecord: 0.0ms | Allocations: 9343)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-10-08 19:36:52 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.8ms | Allocations: 217)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 182)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 5.8ms | Allocations: 2435)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered layout layouts/application.html.erb (Duration: 22.4ms | Allocations: 9221)
+Completed 200 OK in 25ms (Views: 24.0ms | ActiveRecord: 0.0ms | Allocations: 10515)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-10-08 19:36:54 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1776)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 8346)
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 0.0ms | Allocations: 9096)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-10-08 19:38:22 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.5ms | Allocations: 542)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.1ms | Allocations: 2723)
+  Rendered layouts/_navigation.html.erb (Duration: 1.0ms | Allocations: 188)
+  Rendered layout layouts/application.html.erb (Duration: 19.8ms | Allocations: 9867)
+Completed 200 OK in 24ms (Views: 22.2ms | ActiveRecord: 0.0ms | Allocations: 11139)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-10-08 19:38:41 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 542)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.4ms | Allocations: 2726)
+  Rendered layouts/_navigation.html.erb (Duration: 0.6ms | Allocations: 188)
+  Rendered layout layouts/application.html.erb (Duration: 19.0ms | Allocations: 9872)
+Completed 200 OK in 23ms (Views: 22.0ms | ActiveRecord: 0.0ms | Allocations: 11264)
+
+
+Started GET "/" for ::1 at 2022-10-09 16:30:08 +0100
+  
+NoMethodError (undefined method `rdevise_scope' for #<ActionDispatch::Routing::Mapper:0x000000010b26e5d8 @set=#<ActionDispatch::Routing::RouteSet:0x000000010b3f7030>, @draw_paths=[#<Pathname:/Users/mereoleona/Documents/Github/effective-eureka/config/routes>], @scope=#<ActionDispatch::Routing::Mapper::Scope:0x000000010b26e510 @hash={:path_names=>{:new=>"new", :edit=>"edit"}}, @parent=#<ActionDispatch::Routing::Mapper::Scope:0x000000010a3b3430 @hash=nil, @parent=nil, @scope_level=nil>, @scope_level=nil>, @concerns={}>
+
+  rdevise_scope :user do
+  ^^^^^^^^^^^^^
+Did you mean?  devise_scope):
+  
+config/routes.rb:7:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/" for ::1 at 2022-10-09 16:30:18 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/mereoleona/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mereoleona/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.6ms | Allocations: 300)
+Completed 200 OK in 6ms (Views: 3.8ms | Allocations: 1096)
+
+
+Started GET "/" for ::1 at 2022-10-09 16:30:26 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/mereoleona/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mereoleona/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.1ms | Allocations: 296)
+Completed 200 OK in 5ms (Views: 3.4ms | Allocations: 1001)
+
+
+Started GET "/" for ::1 at 2022-10-09 16:30:36 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 124)
+  Rendered layouts/_navigation.html.erb (Duration: 1.2ms | Allocations: 225)
+  Rendered layout layouts/application.html.erb (Duration: 47.3ms | Allocations: 22663)
+Completed 200 OK in 50ms (Views: 49.1ms | Allocations: 23621)
+
+
+Started GET "/" for ::1 at 2022-10-09 16:37:40 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 12)
+  Rendered layouts/_navigation.html.erb (Duration: 0.2ms | Allocations: 92)
+  Rendered layout layouts/application.html.erb (Duration: 31.7ms | Allocations: 22247)
+Completed 200 OK in 35ms (Views: 32.9ms | Allocations: 22880)
+
+
+Started GET "/login" for ::1 at 2022-10-09 16:37:56 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 559)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 30.8ms | Allocations: 2788)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered layout layouts/application.html.erb (Duration: 41.0ms | Allocations: 9547)
+Completed 200 OK in 370ms (Views: 43.8ms | ActiveRecord: 207.8ms | Allocations: 15935)
+
+
