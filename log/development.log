@@ -1326,3 +1326,119 @@ Processing by Devise::RegistrationsController#new as HTML
 Completed 200 OK in 370ms (Views: 198.7ms | ActiveRecord: 148.5ms | Allocations: 79777)
 
 
+Started GET "/signup" for ::1 at 2022-10-10 20:21:55 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.2ms | Allocations: 16)
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 79)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 11.2ms | Allocations: 2436)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 45)
+  Rendered layout layouts/application.html.erb (Duration: 1016.5ms | Allocations: 55043)
+Completed 200 OK in 1024ms (Views: 1018.1ms | ActiveRecord: 0.0ms | Allocations: 55713)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-10-10 20:22:05 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 289)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.3ms | Allocations: 3001)
+  Rendered layouts/_navigation.html.erb (Duration: 0.2ms | Allocations: 57)
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 9763)
+Completed 200 OK in 22ms (Views: 19.0ms | ActiveRecord: 0.0ms | Allocations: 11287)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-10-10 20:22:07 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 18)
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 96)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 11.5ms | Allocations: 2549)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered layout layouts/application.html.erb (Duration: 57.4ms | Allocations: 9319)
+Completed 200 OK in 61ms (Views: 59.2ms | ActiveRecord: 0.0ms | Allocations: 10487)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-10-10 20:22:09 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1743)
+  Rendered layouts/_navigation.html.erb (Duration: 0.3ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 8312)
+Completed 200 OK in 17ms (Views: 14.6ms | ActiveRecord: 0.0ms | Allocations: 9024)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-10-10 20:22:10 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 7.3ms | Allocations: 2293)
+  Rendered layouts/_navigation.html.erb (Duration: 8.3ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 186.8ms | Allocations: 8871)
+Completed 200 OK in 193ms (Views: 190.6ms | ActiveRecord: 0.0ms | Allocations: 9444)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-10-10 20:22:44 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.2ms | Allocations: 14)
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 10.1ms | Allocations: 2293)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 837.5ms | Allocations: 47367)
+Completed 200 OK in 844ms (Views: 839.6ms | ActiveRecord: 0.0ms | Allocations: 47926)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-10-10 20:22:47 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1738)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 8452)
+Completed 200 OK in 15ms (Views: 13.2ms | ActiveRecord: 0.0ms | Allocations: 9047)
+
+
+Started GET "/users/password/new" for ::1 at 2022-10-10 20:22:49 +0100
+Processing by Devise::PasswordsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 18)
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 168)
+  Rendered devise/passwords/new.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1533)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered layout layouts/application.html.erb (Duration: 15.7ms | Allocations: 8463)
+Completed 200 OK in 20ms (Views: 18.2ms | ActiveRecord: 0.0ms | Allocations: 9686)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-10-10 20:22:50 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1780)
+  Rendered layouts/_navigation.html.erb (Duration: 0.2ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 143.0ms | Allocations: 8465)
+Completed 200 OK in 149ms (Views: 145.2ms | ActiveRecord: 0.0ms | Allocations: 9171)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-10-10 20:22:52 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2294)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 20.7ms | Allocations: 8914)
+Completed 200 OK in 22ms (Views: 21.3ms | ActiveRecord: 0.0ms | Allocations: 9481)
+
+
