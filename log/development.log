@@ -1,161 +1,1514 @@
-Started GET "/" for 127.0.0.1 at 2022-10-04 20:03:15 +0100
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE DATABASE "effective_eureka_development" ENCODING = 'unicode'[0m
+  [1m[35m (52.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "effective_eureka_development"[0m
+  [1m[35m (292.9ms)[0m  [1m[35mCREATE DATABASE "effective_eureka_development" ENCODING = 'unicode'[0m
+  [1m[35m (144.1ms)[0m  [1m[35mCREATE DATABASE "effective_eureka_test" ENCODING = 'unicode'[0m
+  [1m[35m (52.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (46.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6521444561908969980)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20221007224946)
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (47.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221007224946"]]
+  [1m[36mTRANSACTION (40.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-10-08 18:27:51.243516"], ["updated_at", "2022-10-08 18:27:51.243516"]]
+  [1m[36mTRANSACTION (24.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6521444561908969980)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2022-10-08 19:28:20 +0100
+  
+NoMethodError (undefined method `devise_for' for #<ActionDispatch::Routing::Mapper:0x000000010ef5d458 @set=#<ActionDispatch::Routing::RouteSet:0x000000010e0ca5a8>, @draw_paths=[#<Pathname:/Users/mereoleona/Documents/Github/effective-eureka/config/routes>], @scope=#<ActionDispatch::Routing::Mapper::Scope:0x000000010ef5d408 @hash={:path_names=>{:new=>"new", :edit=>"edit"}}, @parent=#<ActionDispatch::Routing::Mapper::Scope:0x000000010d99ce48 @hash=nil, @parent=nil, @scope_level=nil>, @scope_level=nil>, @concerns={}>
+
+  devise_for :users
+  ^^^^^^^^^^):
+  
+config/routes.rb:2:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/" for ::1 at 2022-10-08 19:29:06 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Processing by PagesController#index as HTML
   Rendering layout layouts/application.html.erb
   Rendering pages/index.html.erb within layouts/application
-  Rendered pages/index.html.erb within layouts/application (Duration: 16.1ms | Allocations: 438)
-  Rendered layout layouts/application.html.erb (Duration: 377.0ms | Allocations: 91819)
-Completed 200 OK in 425ms (Views: 402.1ms | ActiveRecord: 0.0ms | Allocations: 96443)
+  Rendered pages/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 329)
+  Rendered layouts/_navigation.html.erb (Duration: 1.1ms | Allocations: 277)
+  Rendered layout layouts/application.html.erb (Duration: 233.7ms | Allocations: 75145)
+Completed 200 OK in 245ms (Views: 237.4ms | ActiveRecord: 0.0ms | Allocations: 78562)
 
 
-Started GET "/" for ::1 at 2022-10-05 23:02:57 +0100
+Started GET "/users/sign_in" for ::1 at 2022-10-08 19:29:36 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/mereoleona/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/devise-4.8.1/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/mereoleona/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/devise-4.8.1/app/views/devise/shared/_links.html.erb (Duration: 2.1ms | Allocations: 725)
+  Rendered /Users/mereoleona/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/devise-4.8.1/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 57.0ms | Allocations: 7750)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered layout layouts/application.html.erb (Duration: 77.7ms | Allocations: 14504)
+Completed 200 OK in 108ms (Views: 81.6ms | ActiveRecord: 5.3ms | Allocations: 22558)
+
+
+Started GET "/" for ::1 at 2022-10-08 19:31:18 +0100
 Processing by PagesController#index as HTML
   Rendering layout layouts/application.html.erb
   Rendering pages/index.html.erb within layouts/application
-  Rendered pages/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 330)
-  Rendered layout layouts/application.html.erb (Duration: 91.8ms | Allocations: 5754)
-Completed 500 Internal Server Error in 108ms (ActiveRecord: 0.0ms | Allocations: 9079)
+  Rendered pages/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 122)
+  Rendered layouts/_navigation.html.erb (Duration: 0.7ms | Allocations: 218)
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 7595)
+Completed 200 OK in 18ms (Views: 16.6ms | ActiveRecord: 0.0ms | Allocations: 8470)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-10-08 19:33:16 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 29.6ms | Allocations: 11260)
+  Rendered layout layouts/application.html.erb (Duration: 29.9ms | Allocations: 11357)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 0.0ms | Allocations: 12664)
 
 
   
-LoadError (cannot load such file -- sassc):
+ActionView::Template::Error (undefined method `bootstrap_form_for' for #<ActionView::Base:0x0000000000d0e8>
+
+'.freeze;@output_buffer.append=  bootstrap_form_for(resource, 
+                                 ^^^^^^^^^^^^^^^^^^):
+    1: <h2>Log in</h2>
+    2: 
+    3: <%= bootstrap_form_for(resource, 
+    4:                        as: resource_name, 
+    5:                        url: session_path(resource_name)) do |f| %>
+    6:     <%= f.email_field :email, 
   
-app/views/layouts/application.html.erb:9
-Started GET "/" for ::1 at 2022-10-05 23:04:40 +0100
-Processing by PagesController#index as HTML
+app/views/devise/sessions/new.html.erb:3
+Started GET "/users/sign_in" for ::1 at 2022-10-08 19:33:25 +0100
+Processing by Devise::SessionsController#new as HTML
   Rendering layout layouts/application.html.erb
-  Rendering pages/index.html.erb within layouts/application
-  Rendered pages/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 7)
-  Rendered layout layouts/application.html.erb (Duration: 50.5ms | Allocations: 9912)
-Completed 500 Internal Server Error in 55ms (ActiveRecord: 0.0ms | Allocations: 10182)
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.2ms | Allocations: 540)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 2213)
+  Rendered layouts/_navigation.html.erb (Duration: 0.7ms | Allocations: 188)
+  Rendered layout layouts/application.html.erb (Duration: 20.3ms | Allocations: 9364)
+Completed 200 OK in 25ms (Views: 23.8ms | ActiveRecord: 0.0ms | Allocations: 10754)
 
 
-  
-LoadError (cannot load such file -- sassc):
-  
-app/views/layouts/application.html.erb:9
-Started GET "/" for ::1 at 2022-10-05 23:05:42 +0100
-Processing by PagesController#index as HTML
+Started POST "/users/sign_in" for ::1 at 2022-10-08 19:33:29 +0100
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"iamthermiee@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (44.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "iamthermiee@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 61ms (ActiveRecord: 45.1ms | Allocations: 3754)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-10-08 19:34:09 +0100
+Processing by Devise::SessionsController#new as HTML
   Rendering layout layouts/application.html.erb
-  Rendering pages/index.html.erb within layouts/application
-  Rendered pages/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 330)
-  Rendered layouts/_navigation.html.erb (Duration: 12.6ms | Allocations: 133)
-  Rendered layout layouts/application.html.erb (Duration: 1842.1ms | Allocations: 183742)
-Completed 200 OK in 1857ms (Views: 1846.4ms | ActiveRecord: 0.0ms | Allocations: 187130)
-
-
-Started GET "/" for ::1 at 2022-10-06 22:22:00 +0100
-Processing by PagesController#index as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering pages/index.html.erb within layouts/application
-  Rendered pages/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 330)
-  Rendered layouts/_navigation.html.erb (Duration: 4.8ms | Allocations: 128)
-  Rendered layout layouts/application.html.erb (Duration: 167.1ms | Allocations: 53542)
-Completed 200 OK in 180ms (Views: 172.4ms | ActiveRecord: 0.0ms | Allocations: 56929)
-
-
-Started GET "/" for ::1 at 2022-10-06 22:27:02 +0100
-Processing by PagesController#index as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering pages/index.html.erb within layouts/application
-  Rendered pages/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 126)
-  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | Allocations: 123)
-  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 7380)
-Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 0.0ms | Allocations: 8265)
-
-
-Started GET "/" for ::1 at 2022-10-06 22:27:15 +0100
-Processing by PagesController#index as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering pages/index.html.erb within layouts/application
-  Rendered pages/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 330)
-  Rendered layouts/_navigation.html.erb (Duration: 0.6ms | Allocations: 128)
-  Rendered layout layouts/application.html.erb (Duration: 116.7ms | Allocations: 54080)
-Completed 200 OK in 128ms (Views: 120.7ms | ActiveRecord: 0.0ms | Allocations: 57467)
-
-
-Started GET "/" for ::1 at 2022-10-06 22:41:04 +0100
-Processing by PagesController#index as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering pages/index.html.erb within layouts/application
-  Rendered pages/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 121)
-  Rendered layouts/_navigation.html.erb (Duration: 0.8ms | Allocations: 266)
-  Rendered layout layouts/application.html.erb (Duration: 79.5ms | Allocations: 7450)
-Completed 200 OK in 88ms (Views: 84.3ms | Allocations: 8328)
-
-
-Started GET "/" for ::1 at 2022-10-06 22:41:08 +0100
-Processing by PagesController#index as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering pages/index.html.erb within layouts/application
-  Rendered pages/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
-  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 54)
-  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 6521)
-Completed 200 OK in 11ms (Views: 10.9ms | Allocations: 6801)
-
-
-Started GET "/" for ::1 at 2022-10-06 22:45:52 +0100
-Processing by PagesController#index as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering pages/index.html.erb within layouts/application
-  Rendered pages/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 121)
-  Rendered layout layouts/application.html.erb (Duration: 365.0ms | Allocations: 23583)
-Completed 500 Internal Server Error in 368ms (Allocations: 24408)
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 15.1ms | Allocations: 4788)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 4877)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms | Allocations: 6245)
 
 
   
-ActionView::Template::Error (Error: File to import not found or unreadable: base/variables.
-        on line 5:1 of app/assets/stylesheets/application.scss
->> @import "base/variables";
+ActionView::Template::Error (undefined method `bootstrap_form_for' for #<ActionView::Base:0x0000000000d818>
 
-   ^
+'.freeze;@output_buffer.append=  bootstrap_form_for(resource, 
+                                 ^^^^^^^^^^^^^^^^^^):
+    1: <h2>Log in</h2>
+    2: 
+    3: <%= bootstrap_form_for(resource, 
+    4: as: resource_name, 
+    5: url: session_path(resource_name)) do |f| %>
+    6: <%= f.email_field :email, 
+  
+app/views/devise/sessions/new.html.erb:3
+Started GET "/users/sign_in" for ::1 at 2022-10-08 19:35:21 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 14.5ms | Allocations: 4445)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 4524)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms | Allocations: 5243)
+
+
+  
+ActionView::Template::Error (undefined method `bootstrap_form_for' for #<ActionView::Base:0x0000000000db38>
+
+'.freeze;@output_buffer.append=  bootstrap_form_for(resource, 
+                                 ^^^^^^^^^^^^^^^^^^):
+    1: <h2>Log in</h2>
+    2: 
+    3: <%= bootstrap_form_for(resource, 
+    4: as: resource_name, 
+    5: url: session_path(resource_name)) do |f| %>
+    6: <%= f.email_field :email, 
+  
+app/views/devise/sessions/new.html.erb:3
+Started GET "/users/sign_in" for ::1 at 2022-10-08 19:35:31 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.1ms | Allocations: 738)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 100.1ms | Allocations: 15779)
+  Rendered layouts/_navigation.html.erb (Duration: 0.8ms | Allocations: 204)
+  Rendered layout layouts/application.html.erb (Duration: 1407.6ms | Allocations: 212336)
+Completed 200 OK in 1444ms (Views: 1415.6ms | ActiveRecord: 5.3ms | Allocations: 222812)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-10-08 19:36:50 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 133)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1884)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 45)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 8552)
+Completed 200 OK in 15ms (Views: 13.1ms | ActiveRecord: 0.0ms | Allocations: 9343)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-10-08 19:36:52 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.8ms | Allocations: 217)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 182)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 5.8ms | Allocations: 2435)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered layout layouts/application.html.erb (Duration: 22.4ms | Allocations: 9221)
+Completed 200 OK in 25ms (Views: 24.0ms | ActiveRecord: 0.0ms | Allocations: 10515)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-10-08 19:36:54 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1776)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 8346)
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 0.0ms | Allocations: 9096)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-10-08 19:38:22 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.5ms | Allocations: 542)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.1ms | Allocations: 2723)
+  Rendered layouts/_navigation.html.erb (Duration: 1.0ms | Allocations: 188)
+  Rendered layout layouts/application.html.erb (Duration: 19.8ms | Allocations: 9867)
+Completed 200 OK in 24ms (Views: 22.2ms | ActiveRecord: 0.0ms | Allocations: 11139)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-10-08 19:38:41 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 542)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.4ms | Allocations: 2726)
+  Rendered layouts/_navigation.html.erb (Duration: 0.6ms | Allocations: 188)
+  Rendered layout layouts/application.html.erb (Duration: 19.0ms | Allocations: 9872)
+Completed 200 OK in 23ms (Views: 22.0ms | ActiveRecord: 0.0ms | Allocations: 11264)
+
+
+Started GET "/" for ::1 at 2022-10-09 16:30:08 +0100
+  
+NoMethodError (undefined method `rdevise_scope' for #<ActionDispatch::Routing::Mapper:0x000000010b26e5d8 @set=#<ActionDispatch::Routing::RouteSet:0x000000010b3f7030>, @draw_paths=[#<Pathname:/Users/mereoleona/Documents/Github/effective-eureka/config/routes>], @scope=#<ActionDispatch::Routing::Mapper::Scope:0x000000010b26e510 @hash={:path_names=>{:new=>"new", :edit=>"edit"}}, @parent=#<ActionDispatch::Routing::Mapper::Scope:0x000000010a3b3430 @hash=nil, @parent=nil, @scope_level=nil>, @scope_level=nil>, @concerns={}>
+
+  rdevise_scope :user do
+  ^^^^^^^^^^^^^
+Did you mean?  devise_scope):
+  
+config/routes.rb:7:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/" for ::1 at 2022-10-09 16:30:18 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/mereoleona/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mereoleona/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.6ms | Allocations: 300)
+Completed 200 OK in 6ms (Views: 3.8ms | Allocations: 1096)
+
+
+Started GET "/" for ::1 at 2022-10-09 16:30:26 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/mereoleona/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mereoleona/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.1ms | Allocations: 296)
+Completed 200 OK in 5ms (Views: 3.4ms | Allocations: 1001)
+
+
+Started GET "/" for ::1 at 2022-10-09 16:30:36 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 124)
+  Rendered layouts/_navigation.html.erb (Duration: 1.2ms | Allocations: 225)
+  Rendered layout layouts/application.html.erb (Duration: 47.3ms | Allocations: 22663)
+Completed 200 OK in 50ms (Views: 49.1ms | Allocations: 23621)
+
+
+Started GET "/" for ::1 at 2022-10-09 16:37:40 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 12)
+  Rendered layouts/_navigation.html.erb (Duration: 0.2ms | Allocations: 92)
+  Rendered layout layouts/application.html.erb (Duration: 31.7ms | Allocations: 22247)
+Completed 200 OK in 35ms (Views: 32.9ms | Allocations: 22880)
+
+
+Started GET "/login" for ::1 at 2022-10-09 16:37:56 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 559)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 30.8ms | Allocations: 2788)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered layout layouts/application.html.erb (Duration: 41.0ms | Allocations: 9547)
+Completed 200 OK in 370ms (Views: 43.8ms | ActiveRecord: 207.8ms | Allocations: 15935)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (4.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (5.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (8305.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "effective_eureka_development"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (196.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "effective_eureka_development"[0m
+  [1m[35m (116.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "effective_eureka_test"[0m
+  [1m[35m (252.3ms)[0m  [1m[35mCREATE DATABASE "effective_eureka_development" ENCODING = 'unicode'[0m
+  [1m[35m (95.7ms)[0m  [1m[35mCREATE DATABASE "effective_eureka_test" ENCODING = 'unicode'[0m
+  [1m[35m (15.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6521444561908969980)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20221007224946)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (92.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (45.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221007224946"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-10-09 15:43:43.735207"], ["updated_at", "2022-10-09 15:43:43.735207"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6521444561908969980)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2022-10-09 17:07:33 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 329)
+  Rendered layouts/_navigation.html.erb (Duration: 1.2ms | Allocations: 277)
+  Rendered layout layouts/application.html.erb (Duration: 134.7ms | Allocations: 56776)
+Completed 200 OK in 146ms (Views: 138.3ms | ActiveRecord: 0.0ms | Allocations: 60193)
+
+
+Started GET "/" for ::1 at 2022-10-09 17:07:36 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 9)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 66)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 6997)
+Completed 200 OK in 13ms (Views: 12.3ms | ActiveRecord: 0.0ms | Allocations: 7319)
+
+
+Started GET "/login" for ::1 at 2022-10-09 17:07:41 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 727)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 38.6ms | Allocations: 12033)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered layout layouts/application.html.erb (Duration: 47.7ms | Allocations: 18920)
+Completed 200 OK in 149ms (Views: 50.0ms | ActiveRecord: 82.8ms | Allocations: 26644)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-10-09 17:07:43 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.7ms | Allocations: 217)
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 180)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 5.4ms | Allocations: 2432)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered layout layouts/application.html.erb (Duration: 14.1ms | Allocations: 9223)
+Completed 200 OK in 18ms (Views: 16.6ms | ActiveRecord: 0.0ms | Allocations: 10669)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-10-09 17:09:17 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 24.2ms | Allocations: 13542)
+  Rendered layout layouts/application.html.erb (Duration: 24.5ms | Allocations: 13640)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.0ms | Allocations: 15079)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<User id: nil, email: "", created_at: nil, updated_at: nil>):
+    3: <%= bootstrap_form_for(resource, 
+    4:                        :as => resource_name, 
+    5:                        :url => registration_path(resource_name)) do |f| %>
+    6:   <%= f.text_field :name, 
+    7: 	           placeholder: 'username (will be shown publicly)', 
+    8: 	           class: 'form-control' %>
+    9:   <%= f.text_field :email, 
+  
+app/views/devise/registrations/new.html.erb:6
+app/views/devise/registrations/new.html.erb:3
+Started GET "/users/sign_up" for ::1 at 2022-10-09 17:09:59 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1350)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 1440)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 2874)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= bootstrap_form_for(resource, 
+  :as => resource_name, 
+  :url => registration_path(resource_name)) do |f| %>
+<%= f.text_field :name, 
+placeholder: 'username (will be shown publicly)', 
+class: 'form-control' %>
+<%= f.text_field :email, 
+placeholder: 'email', 
+class: 'form-control' %>
+<%= f.password_field :password, 
+  placeholder: 'password', 
+  class: 'form-control' %>
+<%= f.password_field :password_confirmation, 
+  placeholder: 'password confirmation', 
+  class: 'form-control' %>
+<%= f.submit 'Sign up', class: 'btn sign-up-button' %>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
 ):
-     6:     <%= csrf_meta_tags %>
-     7:     <%= csp_meta_tag %>
-     8: 
-     9:     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    10:     <%= javascript_importmap_tags %>
-    11:   </head>
-    12: 
+1:    <h2>Sign up</h2>
+2:    
+3:    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+4:      <%= render "devise/shared/error_messages", resource: resource %>
+5:      <%= bootstrap_form_for(resource, 
+6:      :as => resource_name, 
+7:      :url => registration_path(resource_name)) do |f| %>
+8:    <%= f.text_field :name, 
+9:    placeholder: 'username (will be shown publicly)', 
+10:    class: 'form-control' %>
+11:    <%= f.text_field :email, 
+12:    placeholder: 'email', 
+13:    class: 'form-control' %>
+14:    <%= f.password_field :password, 
+15:      placeholder: 'password', 
+16:      class: 'form-control' %>
+17:    <%= f.password_field :password_confirmation, 
+18:      placeholder: 'password confirmation', 
+19:      class: 'form-control' %>
+20:    <%= f.submit 'Sign up', class: 'btn sign-up-button' %>
+21:    <% end %>
+22:    
+23:    <%= render "devise/shared/links" %>
   
-app/assets/stylesheets/application.scss:5
-app/views/layouts/application.html.erb:9
-Started GET "/" for ::1 at 2022-10-06 22:46:17 +0100
+app/views/devise/registrations/new.html.erb:26: syntax error, unexpected end-of-input, expecting `end'
+app/views/devise/registrations/new.html.erb:26: syntax error, unexpected end-of-input, expecting `end'
+app/views/devise/registrations/new.html.erb:26: syntax error, unexpected end-of-input, expecting `end'
+app/views/devise/registrations/new.html.erb:26: syntax error, unexpected end-of-input, expecting `end'
+app/views/devise/registrations/new.html.erb:26: syntax error, unexpected end-of-input, expecting `end'
+app/views/devise/registrations/new.html.erb:26: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/users/sign_up" for ::1 at 2022-10-09 17:10:09 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.8ms | Allocations: 212)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 9.9ms | Allocations: 7155)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 7240)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms | Allocations: 8647)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<User id: nil, email: "", created_at: nil, updated_at: nil>):
+    4:   <%= bootstrap_form_for(resource, 
+    5:   :as => resource_name, 
+    6:   :url => registration_path(resource_name)) do |f| %>
+    7: <%= f.text_field :name, 
+    8: placeholder: 'username (will be shown publicly)', 
+    9: class: 'form-control' %>
+   10: <%= f.text_field :email, 
+  
+app/views/devise/registrations/new.html.erb:7
+app/views/devise/registrations/new.html.erb:4
+Started GET "/users/sign_up" for ::1 at 2022-10-09 17:10:39 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 13.6ms | Allocations: 6798)
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 6886)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms | Allocations: 8293)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<User id: nil, email: "", created_at: nil, updated_at: nil>):
+    1: <%= bootstrap_form_for(resource, 
+    2:                        :as => resource_name, 
+    3:                        :url => registration_path(resource_name)) do |f| %>
+    4:   <%= f.text_field :name, 
+    5: 	           placeholder: 'username (will be shown publicly)', 
+    6: 	           class: 'form-control' %>
+    7:   <%= f.text_field :email, 
+  
+app/views/devise/registrations/new.html.erb:4
+app/views/devise/registrations/new.html.erb:1
+Started GET "/users/sign_up" for ::1 at 2022-10-09 17:11:29 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 11.3ms | Allocations: 6337)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 6416)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms | Allocations: 7046)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<User id: nil, email: "", created_at: nil, updated_at: nil>):
+    1: <%= bootstrap_form_for(resource, 
+    2:                        :as => resource_name, 
+    3:                        :url => registration_path(resource_name)) do |f| %>
+    4:   <%= f.text_field :name, 
+    5: 	           placeholder: 'username (will be shown publicly)', 
+    6: 	           class: 'form-control' %>
+    7:   <%= f.text_field :email, 
+  
+app/views/devise/registrations/new.html.erb:4
+app/views/devise/registrations/new.html.erb:1
+Started GET "/users/sign_up" for ::1 at 2022-10-09 17:11:41 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.0ms | Allocations: 210)
+  Rendered devise/shared/_links.html.erb (Duration: 1.4ms | Allocations: 487)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 6.5ms | Allocations: 2478)
+  Rendered layouts/_navigation.html.erb (Duration: 0.7ms | Allocations: 188)
+  Rendered layout layouts/application.html.erb (Duration: 21.9ms | Allocations: 9779)
+Completed 200 OK in 27ms (Views: 25.4ms | ActiveRecord: 0.0ms | Allocations: 11117)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-10-09 17:25:13 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.2ms | Allocations: 14)
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 10.7ms | Allocations: 1203)
+  Rendered layouts/_navigation.html.erb (Duration: 0.2ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 39.2ms | Allocations: 7778)
+Completed 200 OK in 56ms (Views: 43.7ms | Allocations: 8410)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-10-09 17:25:57 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 42.4ms | Allocations: 15991)
+  Rendered layout layouts/application.html.erb (Duration: 42.8ms | Allocations: 16101)
+Completed 500 Internal Server Error in 123ms (ActiveRecord: 51.1ms | Allocations: 26355)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<User id: nil, email: "", created_at: nil, updated_at: nil>):
+    3: <%= bootstrap_form_for(resource, 
+    4:                        :as => resource_name, 
+    5:                        :url => registration_path(resource_name)) do |f| %>
+    6:   <%= f.text_field :name, 
+    7: 	           placeholder: 'username (will be shown publicly)', 
+    8: 	           class: 'form-control' %>
+    9:   <%= f.text_field :email, 
+  
+app/views/devise/registrations/new.html.erb:6
+app/views/devise/registrations/new.html.erb:3
+Started GET "/users/sign_up" for ::1 at 2022-10-09 17:26:49 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 6.3ms | Allocations: 6630)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 6719)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 3.4ms | Allocations: 10258)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<User id: nil, email: "", created_at: nil, updated_at: nil>):
+    3: <%= bootstrap_form_for(resource, 
+    4:                        :as => resource_name, 
+    5:                        :url => registration_path(resource_name)) do |f| %>
+    6:   <%= f.text_field :name, 
+    7: 	           placeholder: 'username (will be shown publicly)', 
+    8: 	           class: 'form-control' %>
+    9:   <%= f.text_field :email, 
+  
+app/views/devise/registrations/new.html.erb:6
+app/views/devise/registrations/new.html.erb:3
+Started GET "/" for ::1 at 2022-10-09 17:26:54 +0100
 Processing by PagesController#index as HTML
   Rendering layout layouts/application.html.erb
   Rendering pages/index.html.erb within layouts/application
-  Rendered pages/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
-  Rendered layouts/_navigation.html.erb (Duration: 0.8ms | Allocations: 219)
-  Rendered layout layouts/application.html.erb (Duration: 766.1ms | Allocations: 44826)
-Completed 200 OK in 767ms (Views: 766.5ms | Allocations: 45122)
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 119)
+  Rendered layouts/_navigation.html.erb (Duration: 2.4ms | Allocations: 240)
+  Rendered layout layouts/application.html.erb (Duration: 240.9ms | Allocations: 55564)
+Completed 200 OK in 251ms (Views: 248.8ms | ActiveRecord: 0.0ms | Allocations: 56442)
 
 
-Started GET "/" for ::1 at 2022-10-06 22:47:21 +0100
+Started GET "/" for ::1 at 2022-10-09 17:26:56 +0100
 Processing by PagesController#index as HTML
   Rendering layout layouts/application.html.erb
   Rendering pages/index.html.erb within layouts/application
   Rendered pages/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 7)
   Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 54)
-  Rendered layout layouts/application.html.erb (Duration: 799.6ms | Allocations: 45675)
-Completed 200 OK in 801ms (Views: 800.2ms | Allocations: 45928)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 6746)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 7026)
 
 
-Started GET "/" for ::1 at 2022-10-06 22:48:34 +0100
-Processing by PagesController#index as HTML
+Started GET "/login" for ::1 at 2022-10-09 17:27:03 +0100
+Processing by Devise::SessionsController#new as HTML
   Rendering layout layouts/application.html.erb
-  Rendering pages/index.html.erb within layouts/application
-  Rendered pages/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 126)
-  Rendered layouts/_navigation.html.erb (Duration: 0.6ms | Allocations: 219)
-  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 7510)
-Completed 200 OK in 15ms (Views: 14.1ms | Allocations: 8320)
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.4ms | Allocations: 731)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 21.4ms | Allocations: 3814)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered layout layouts/application.html.erb (Duration: 30.6ms | Allocations: 10717)
+Completed 200 OK in 37ms (Views: 33.3ms | ActiveRecord: 0.0ms | Allocations: 12247)
 
 
-Started GET "/" for ::1 at 2022-10-06 22:49:52 +0100
-Processing by PagesController#index as HTML
+Started GET "/users/sign_up" for ::1 at 2022-10-09 17:27:05 +0100
+Processing by RegistrationsController#new as HTML
   Rendering layout layouts/application.html.erb
-  Rendering pages/index.html.erb within layouts/application
-  Rendered pages/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 121)
-  Rendered layouts/_navigation.html.erb (Duration: 0.6ms | Allocations: 219)
-  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 7484)
-Completed 200 OK in 15ms (Views: 14.7ms | Allocations: 8314)
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 6.5ms | Allocations: 6393)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 6473)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 7119)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<User id: nil, email: "", created_at: nil, updated_at: nil>):
+    3: <%= bootstrap_form_for(resource, 
+    4:                        :as => resource_name, 
+    5:                        :url => registration_path(resource_name)) do |f| %>
+    6:   <%= f.text_field :name, 
+    7: 	           placeholder: 'username (will be shown publicly)', 
+    8: 	           class: 'form-control' %>
+    9:   <%= f.text_field :email, 
+  
+app/views/devise/registrations/new.html.erb:6
+app/views/devise/registrations/new.html.erb:3
+Started GET "/users/sign_up" for ::1 at 2022-10-09 17:27:54 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 9.9ms | Allocations: 6819)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 6907)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms | Allocations: 8220)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<User id: nil, email: "", created_at: nil, updated_at: nil>):
+     9:       <%= bootstrap_form_for(resource, 
+    10:       :as => resource_name, 
+    11:       :url => registration_path(resource_name)) do |f| %>
+    12: <%= f.text_field :name, 
+    13: placeholder: 'username (will be shown publicly)', 
+    14: class: 'form-control' %>
+    15: <%= f.text_field :email, 
+  
+app/views/devise/registrations/new.html.erb:12
+app/views/devise/registrations/new.html.erb:9
+Started GET "/users/sign_up" for ::1 at 2022-10-09 17:29:46 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1334)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 1424)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 2856)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <div class="container" id="sign-up-form">
+  <div class="row">
+    <h1>Get in touch with like-minded people</h1>
+    <h3>Create, study, accomplish goals together</h3>
+
+    <div class="col-sm-offset-4 col-sm-4">
+      <h3>Sign up <small>it's free!</small></h3> 
+
+      <%= bootstrap_form_for(resource, 
+      :as => resource_name, 
+      :url => registration_path(resource_name)) do |f| %>
+<%=
+placeholder: 'username (will be shown publicly)', 
+class: 'form-control' %>
+<%= f.text_field :email, 
+placeholder: 'email', 
+class: 'form-control' %>
+<%= f.password_field :password, 
+      placeholder: 'password', 
+      class: 'form-control' %>
+<%= f.password_field :password_confirmation, 
+      placeholder: 'password confirmation', 
+      class: 'form-control' %>
+<%= f.submit 'Sign up', class: 'btn sign-up-button' %>
+<% end %>
+
+<%= render "devise/shared/links" %>
+		
+    </div>
+  </div>
+</div>
+
+
+
+):
+1:    <div class="container" id="sign-up-form">
+2:      <div class="row">
+3:        <h1>Get in touch with like-minded people</h1>
+4:        <h3>Create, study, accomplish goals together</h3>
+5:    
+6:        <div class="col-sm-offset-4 col-sm-4">
+7:          <h3>Sign up <small>it's free!</small></h3> 
+8:    
+9:          <%= bootstrap_form_for(resource, 
+10:          :as => resource_name, 
+11:          :url => registration_path(resource_name)) do |f| %>
+12:    <%=
+13:    placeholder: 'username (will be shown publicly)', 
+14:    class: 'form-control' %>
+15:    <%= f.text_field :email, 
+16:    placeholder: 'email', 
+17:    class: 'form-control' %>
+18:    <%= f.password_field :password, 
+19:          placeholder: 'password', 
+20:          class: 'form-control' %>
+21:    <%= f.password_field :password_confirmation, 
+22:          placeholder: 'password confirmation', 
+23:          class: 'form-control' %>
+24:    <%= f.submit 'Sign up', class: 'btn sign-up-button' %>
+25:    <% end %>
+26:    
+27:    <%= render "devise/shared/links" %>
+28:    		
+29:        </div>
+30:      </div>
+31:    </div>
+  
+app/views/devise/registrations/new.html.erb:13: syntax error, unexpected label
+app/views/devise/registrations/new.html.erb:13: syntax error, unexpected ',', expecting ')'
+app/views/devise/registrations/new.html.erb:13: syntax error, unexpected label
+app/views/devise/registrations/new.html.erb:13: syntax error, unexpected ',', expecting ')'
+app/views/devise/registrations/new.html.erb:13: syntax error, unexpected label
+app/views/devise/registrations/new.html.erb:13: syntax error, unexpected ',', expecting ')'
+app/views/devise/registrations/new.html.erb:13: syntax error, unexpected label
+app/views/devise/registrations/new.html.erb:13: syntax error, unexpected ',', expecting ')'
+app/views/devise/registrations/new.html.erb:13: syntax error, unexpected label
+app/views/devise/registrations/new.html.erb:13: syntax error, unexpected ',', expecting ')'
+app/views/devise/registrations/new.html.erb:13: syntax error, unexpected label
+app/views/devise/registrations/new.html.erb:13: syntax error, unexpected ',', expecting ')'
+Started GET "/users/sign_up" for ::1 at 2022-10-09 17:29:58 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 11.2ms | Allocations: 6817)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 6905)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms | Allocations: 8315)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<User id: nil, email: "", created_at: nil, updated_at: nil>):
+     9:       <%= bootstrap_form_for(resource, 
+    10:       :as => resource_name, 
+    11:       :url => registration_path(resource_name)) do |f| %>
+    12: <%= f.text_field :name, 
+    13: placeholder: 'username (will be shown publicly)', 
+    14: class: 'form-control' %>
+    15: <%= f.text_field :email, 
+  
+app/views/devise/registrations/new.html.erb:12
+app/views/devise/registrations/new.html.erb:9
+Started POST "/__web_console/repl_sessions/ea0dbd244b7316ee352d544e18568912/trace" for ::1 at 2022-10-09 17:30:03 +0100
+Started POST "/__web_console/repl_sessions/ea0dbd244b7316ee352d544e18568912/trace" for ::1 at 2022-10-09 17:30:05 +0100
+Started GET "/users/sign_up" for ::1 at 2022-10-09 17:30:48 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 15.0ms | Allocations: 6629)
+  Rendered layout layouts/application.html.erb (Duration: 15.7ms | Allocations: 6717)
+Completed 500 Internal Server Error in 150ms (ActiveRecord: 126.3ms | Allocations: 10243)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<User id: nil, email: "", created_at: nil, updated_at: nil>):
+     9:       <%= bootstrap_form_for(resource, 
+    10:       :as => resource_name, 
+    11:       :url => registration_path(resource_name)) do |f| %>
+    12: <%= f.text_field :name, 
+    13: placeholder: 'username (will be shown publicly)', 
+    14: class: 'form-control' %>
+    15: <%= f.text_field :email, 
+  
+app/views/devise/registrations/new.html.erb:12
+app/views/devise/registrations/new.html.erb:9
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (4.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (8474.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "effective_eureka_development"[0m
+  [1m[35m (123.4ms)[0m  [1m[35mCREATE DATABASE "effective_eureka_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE DATABASE "effective_eureka_test" ENCODING = 'unicode'[0m
+Started GET "/users/sign_up" for ::1 at 2022-10-09 17:39:24 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 7.8ms | Allocations: 6629)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 6717)
+Completed 500 Internal Server Error in 77ms (ActiveRecord: 9.4ms | Allocations: 12838)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<User id: nil, email: "", created_at: nil, updated_at: nil>):
+     9:       <%= bootstrap_form_for(resource, 
+    10:       :as => resource_name, 
+    11:       :url => registration_path(resource_name)) do |f| %>
+    12: <%= f.text_field :name, 
+    13: placeholder: 'username (will be shown publicly)', 
+    14: class: 'form-control' %>
+    15: <%= f.text_field :email, 
+  
+app/views/devise/registrations/new.html.erb:12
+app/views/devise/registrations/new.html.erb:9
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (167.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "effective_eureka_development"[0m
+  [1m[35m (89.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "effective_eureka_test"[0m
+  [1m[35m (359.6ms)[0m  [1m[35mCREATE DATABASE "effective_eureka_development" ENCODING = 'unicode'[0m
+  [1m[35m (172.5ms)[0m  [1m[35mCREATE DATABASE "effective_eureka_test" ENCODING = 'unicode'[0m
+  [1m[35m (11.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6521444561908969980)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20221007224946)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (46.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221007224946"]]
+  [1m[36mTRANSACTION (25.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-10-09 16:40:28.473170"], ["updated_at", "2022-10-09 16:40:28.473170"]]
+  [1m[36mTRANSACTION (226.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6521444561908969980)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users/sign_up" for ::1 at 2022-10-09 17:40:54 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 44.8ms | Allocations: 16003)
+  Rendered layout layouts/application.html.erb (Duration: 45.2ms | Allocations: 16113)
+Completed 500 Internal Server Error in 80ms (ActiveRecord: 5.5ms | Allocations: 26373)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<User id: nil, email: "", created_at: nil, updated_at: nil>):
+     9:       <%= bootstrap_form_for(resource, 
+    10:       :as => resource_name, 
+    11:       :url => registration_path(resource_name)) do |f| %>
+    12: <%= f.text_field :name, 
+    13: placeholder: 'username (will be shown publicly)', 
+    14: class: 'form-control' %>
+    15: <%= f.text_field :email, 
+  
+app/views/devise/registrations/new.html.erb:12
+app/views/devise/registrations/new.html.erb:9
+Started GET "/users/sign_up" for ::1 at 2022-10-10 00:27:40 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.8ms | Allocations: 217)
+  Rendered devise/shared/_links.html.erb (Duration: 7.5ms | Allocations: 628)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 170.1ms | Allocations: 10169)
+  Rendered layouts/_navigation.html.erb (Duration: 2.3ms | Allocations: 199)
+  Rendered layout layouts/application.html.erb (Duration: 351.9ms | Allocations: 66147)
+Completed 200 OK in 433ms (Views: 400.3ms | Allocations: 67639)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-10-10 00:29:11 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.4ms | Allocations: 210)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 117.8ms | Allocations: 8426)
+  Rendered layout layouts/application.html.erb (Duration: 118.1ms | Allocations: 8511)
+Completed 500 Internal Server Error in 125ms (Allocations: 9922)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<User id: nil, email: "", created_at: nil, updated_at: nil>):
+    35:     <%= bootstrap_form_for(resource, 
+    36:                        :as => resource_name, 
+    37:                        :url => registration_path(resource_name)) do |f| %>
+    38:   <%= f.text_field :name, 
+    39: 	           placeholder: 'username (will be shown publicly)', 
+    40: 	           class: 'form-control' %>
+    41:   <%= f.text_field :email, 
+  
+app/views/devise/registrations/new.html.erb:38
+app/views/devise/registrations/new.html.erb:35
+Started GET "/login" for ::1 at 2022-10-10 00:29:23 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.5ms | Allocations: 714)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 16.9ms | Allocations: 3351)
+  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | Allocations: 190)
+  Rendered layout layouts/application.html.erb (Duration: 33.0ms | Allocations: 10644)
+Completed 200 OK in 58ms (Views: 36.3ms | Allocations: 12396)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-10-10 00:29:35 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.7ms | Allocations: 210)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 89)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 7.4ms | Allocations: 3871)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered layout layouts/application.html.erb (Duration: 17.5ms | Allocations: 10777)
+Completed 200 OK in 21ms (Views: 19.7ms | Allocations: 11968)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-10-10 00:29:47 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1742)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 8311)
+Completed 200 OK in 14ms (Views: 13.1ms | Allocations: 8999)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-10-10 00:29:49 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 14)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 2829)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 56.4ms | Allocations: 9406)
+Completed 200 OK in 59ms (Views: 57.2ms | Allocations: 9976)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-10-10 00:30:16 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 11.6ms | Allocations: 6819)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 6908)
+Completed 500 Internal Server Error in 18ms (Allocations: 8248)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<User id: nil, email: "", created_at: nil, updated_at: nil>):
+     6:     <%= bootstrap_form_for(resource, 
+     7:                        :as => resource_name, 
+     8:                        :url => registration_path(resource_name)) do |f| %>
+     9:   <!-- <%= f.text_field :name, 
+    10: 	           placeholder: 'username (will be shown publicly)', 
+    11: 	           class: 'form-control' %> -->
+    12:   <%= f.text_field :email, 
+  
+app/views/devise/registrations/new.html.erb:9
+app/views/devise/registrations/new.html.erb:6
+Started GET "/users/sign_up" for ::1 at 2022-10-10 00:31:03 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1547)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 1636)
+Completed 500 Internal Server Error in 7ms (Allocations: 3065)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <div class="container" id="sign-up-form">
+  <div class="row">
+    <h1>Get in touch with like-minded people</h1>
+    <h3>Create, study, accomplish goals together</h3>
+
+    <div class="col-sm-offset-4 col-sm-4">
+      <h3>Sign up <small>it's free!</small></h3> 
+
+    
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+    
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+    
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+    
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+    <% end %>
+
+    <%= bootstrap_form_for(resource, 
+                       :as => resource_name, 
+                       :url => registration_path(resource_name)) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+
+  <%= f.text_field :name, 
+	           placeholder: 'username (will be shown publicly)', 
+	           class: 'form-control' %>
+  <%= f.text_field :email, 
+	           placeholder: 'email', 
+	           class: 'form-control' %>
+  <%= f.password_field :password, 
+                       placeholder: 'password', 
+                       class: 'form-control' %>
+  <%= f.password_field :password_confirmation, 
+                       placeholder: 'password confirmation', 
+                       class: 'form-control' %>
+  <%= f.submit 'Sign up', class: 'btn sign-up-button' %>
+<% end %>
+    
+    <%= render "devise/shared/links" %>
+		
+    </div>
+  </div>
+</div>
+
+
+
+):
+1:    <div class="container" id="sign-up-form">
+2:      <div class="row">
+3:        <h1>Get in touch with like-minded people</h1>
+4:        <h3>Create, study, accomplish goals together</h3>
+5:    
+6:        <div class="col-sm-offset-4 col-sm-4">
+7:          <h3>Sign up <small>it's free!</small></h3> 
+8:    
+9:        
+10:          <div class="field">
+11:            <%= f.label :email %><br />
+12:            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+13:          </div>
+14:        
+15:          <div class="field">
+16:            <%= f.label :password %>
+17:            <% if @minimum_password_length %>
+18:            <em>(<%= @minimum_password_length %> characters minimum)</em>
+19:            <% end %><br />
+20:            <%= f.password_field :password, autocomplete: "new-password" %>
+21:          </div>
+22:        
+23:          <div class="field">
+24:            <%= f.label :password_confirmation %><br />
+25:            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+26:          </div>
+27:        
+28:          <div class="actions">
+29:            <%= f.submit "Sign up" %>
+30:          </div>
+31:        <% end %>
+32:    
+33:        <%= bootstrap_form_for(resource, 
+34:                           :as => resource_name, 
+35:                           :url => registration_path(resource_name)) do |f| %>
+36:                <%= render "devise/shared/error_messages", resource: resource %>
+37:    
+38:      <%= f.text_field :name, 
+39:    	           placeholder: 'username (will be shown publicly)', 
+40:    	           class: 'form-control' %>
+41:      <%= f.text_field :email, 
+42:    	           placeholder: 'email', 
+43:    	           class: 'form-control' %>
+44:      <%= f.password_field :password, 
+45:                           placeholder: 'password', 
+46:                           class: 'form-control' %>
+47:      <%= f.password_field :password_confirmation, 
+48:                           placeholder: 'password confirmation', 
+49:                           class: 'form-control' %>
+50:      <%= f.submit 'Sign up', class: 'btn sign-up-button' %>
+51:    <% end %>
+52:        
+53:        <%= render "devise/shared/links" %>
+54:    		
+55:        </div>
+56:      </div>
+57:    </div>
+  
+app/views/devise/registrations/new.html.erb:62: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:62: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:62: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:62: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:62: syntax error, unexpected `end', expecting end-of-input
+app/views/devise/registrations/new.html.erb:62: syntax error, unexpected `end', expecting end-of-input
+Started GET "/users/sign_up" for ::1 at 2022-10-10 00:31:18 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.8ms | Allocations: 207)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 12.9ms | Allocations: 8429)
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 8514)
+Completed 500 Internal Server Error in 17ms (Allocations: 9938)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<User id: nil, email: "", created_at: nil, updated_at: nil>):
+    37:                        :url => registration_path(resource_name)) do |f| %>
+    38:             <%= render "devise/shared/error_messages", resource: resource %>
+    39: 
+    40:   <!-- <%= f.text_field :name, 
+    41: 	           placeholder: 'username (will be shown publicly)', 
+    42: 	           class: 'form-control' %> -->
+    43:   <%= f.text_field :email, 
+  
+app/views/devise/registrations/new.html.erb:40
+app/views/devise/registrations/new.html.erb:35
+Started GET "/users/sign_up" for ::1 at 2022-10-10 00:31:30 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.5ms | Allocations: 207)
+  Rendered devise/shared/_links.html.erb (Duration: 1.1ms | Allocations: 487)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 9.0ms | Allocations: 4296)
+  Rendered layouts/_navigation.html.erb (Duration: 0.6ms | Allocations: 188)
+  Rendered layout layouts/application.html.erb (Duration: 21.7ms | Allocations: 11595)
+Completed 200 OK in 27ms (Views: 24.5ms | Allocations: 13041)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-10-10 00:31:50 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.8ms | Allocations: 212)
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 488)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 8.9ms | Allocations: 3088)
+  Rendered layouts/_navigation.html.erb (Duration: 0.5ms | Allocations: 188)
+  Rendered layout layouts/application.html.erb (Duration: 22.1ms | Allocations: 10383)
+Completed 200 OK in 27ms (Views: 25.5ms | Allocations: 11811)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-10-10 00:32:40 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.3ms | Allocations: 212)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 32.8ms | Allocations: 7169)
+  Rendered layout layouts/application.html.erb (Duration: 33.1ms | Allocations: 7254)
+Completed 500 Internal Server Error in 56ms (Allocations: 8654)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<User id: nil, email: "", created_at: nil, updated_at: nil>):
+     7:                        :as => resource_name, 
+     8:                        :url => registration_path(resource_name)) do |f| %>
+     9:             <%= render "devise/shared/error_messages", resource: resource %>
+    10:             <%= f.text_field :name, autofocus: true, class: 'form-control' , placeholder: 'name' %>
+    11: 
+    12:   <%= f.text_field :email, 
+    13: 	           placeholder: 'email', 
+  
+app/views/devise/registrations/new.html.erb:10
+app/views/devise/registrations/new.html.erb:6
+Started GET "/users/sign_up" for ::1 at 2022-10-10 00:33:12 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.3ms | Allocations: 212)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 16.3ms | Allocations: 7172)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 7257)
+Completed 500 Internal Server Error in 23ms (Allocations: 8665)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<User id: nil, email: "", created_at: nil, updated_at: nil>):
+     9:                        :url => registration_path(resource_name)) do |f| %>
+    10:             <%= render "devise/shared/error_messages", resource: resource %>
+    11: 
+    12:             <%= f.text_field :name, 
+    13:             placeholder: 'username (will be shown publicly)', 
+    14:             class: 'form-control' %>
+    15:   <%= f.text_field :email, 
+  
+app/views/devise/registrations/new.html.erb:12
+app/views/devise/registrations/new.html.erb:7
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (40.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (93.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "effective_eureka_development"[0m
+  [1m[35m (116.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "effective_eureka_test"[0m
+  [1m[35m (444.2ms)[0m  [1m[35mCREATE DATABASE "effective_eureka_development" ENCODING = 'unicode'[0m
+  [1m[35m (255.6ms)[0m  [1m[35mCREATE DATABASE "effective_eureka_test" ENCODING = 'unicode'[0m
+  [1m[35m (49.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6521444561908969980)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20221007224946)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6521444561908969980)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6521444561908969980)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20221007224946)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (85.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying NOT NULL, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (41.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221007224946"]]
+  [1m[36mTRANSACTION (39.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-10-09 23:36:15.152136"], ["updated_at", "2022-10-09 23:36:15.152136"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6521444561908969980)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users/sign_up" for ::1 at 2022-10-10 00:36:19 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 19)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 11.3ms | Allocations: 6713)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 6798)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms | Allocations: 9969)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<User id: nil, email: "", created_at: nil, updated_at: nil>):
+     9:                        :url => registration_path(resource_name)) do |f| %>
+    10:             <%= render "devise/shared/error_messages", resource: resource %>
+    11: 
+    12:             <%= f.text_field :name, 
+    13:             placeholder: 'username (will be shown publicly)', 
+    14:             class: 'form-control' %>
+    15:   <%= f.text_field :email, 
+  
+app/views/devise/registrations/new.html.erb:12
+app/views/devise/registrations/new.html.erb:7
+Started GET "/users/sign_up" for ::1 at 2022-10-10 20:13:50 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (31.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 4.5ms | Allocations: 213)
+  Rendered devise/shared/_links.html.erb (Duration: 6.1ms | Allocations: 499)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 41.3ms | Allocations: 3150)
+  Rendered layouts/_navigation.html.erb (Duration: 6.0ms | Allocations: 190)
+  Rendered layout layouts/application.html.erb (Duration: 152.6ms | Allocations: 25678)
+Completed 200 OK in 187ms (Views: 159.9ms | ActiveRecord: 0.0ms | Allocations: 29402)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-10-10 20:14:00 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 160)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 12.2ms | Allocations: 2311)
+  Rendered layouts/_navigation.html.erb (Duration: 0.2ms | Allocations: 57)
+  Rendered layout layouts/application.html.erb (Duration: 51.5ms | Allocations: 9071)
+Completed 200 OK in 65ms (Views: 60.3ms | ActiveRecord: 0.0ms | Allocations: 10399)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-10-10 20:14:01 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 14)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 6.6ms | Allocations: 1855)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 242.2ms | Allocations: 8431)
+Completed 200 OK in 248ms (Views: 245.7ms | ActiveRecord: 0.0ms | Allocations: 9088)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-10-10 20:14:03 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1738)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 107.4ms | Allocations: 8305)
+Completed 200 OK in 110ms (Views: 108.2ms | ActiveRecord: 0.0ms | Allocations: 8919)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-10-10 20:14:05 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.2ms | Allocations: 14)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 15.9ms | Allocations: 1854)
+  Rendered layouts/_navigation.html.erb (Duration: 0.2ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 148.4ms | Allocations: 8429)
+Completed 200 OK in 151ms (Views: 148.9ms | ActiveRecord: 0.0ms | Allocations: 8995)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-10-10 20:14:07 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.8ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 172.2ms | Allocations: 1738)
+  Rendered layouts/_navigation.html.erb (Duration: 0.4ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 354.1ms | Allocations: 8306)
+Completed 200 OK in 441ms (Views: 357.5ms | ActiveRecord: 0.0ms | Allocations: 8906)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-10-10 20:14:09 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 14)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 214.1ms | Allocations: 1854)
+  Rendered layouts/_navigation.html.erb (Duration: 0.2ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 235.3ms | Allocations: 8429)
+Completed 200 OK in 252ms (Views: 237.5ms | ActiveRecord: 0.0ms | Allocations: 8998)
+
+
+Started GET "/sign_up" for ::1 at 2022-10-10 20:20:38 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/sign_up"):
+  
+Started GET "/signup" for ::1 at 2022-10-10 20:20:56 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.8ms | Allocations: 272)
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 621)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 40.4ms | Allocations: 13004)
+  Rendered layouts/_navigation.html.erb (Duration: 0.8ms | Allocations: 202)
+  Rendered layout layouts/application.html.erb (Duration: 190.7ms | Allocations: 69131)
+Completed 200 OK in 370ms (Views: 198.7ms | ActiveRecord: 148.5ms | Allocations: 79777)
+
+
+Started GET "/signup" for ::1 at 2022-10-10 20:21:55 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.2ms | Allocations: 16)
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 79)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 11.2ms | Allocations: 2436)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 45)
+  Rendered layout layouts/application.html.erb (Duration: 1016.5ms | Allocations: 55043)
+Completed 200 OK in 1024ms (Views: 1018.1ms | ActiveRecord: 0.0ms | Allocations: 55713)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-10-10 20:22:05 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 289)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.3ms | Allocations: 3001)
+  Rendered layouts/_navigation.html.erb (Duration: 0.2ms | Allocations: 57)
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 9763)
+Completed 200 OK in 22ms (Views: 19.0ms | ActiveRecord: 0.0ms | Allocations: 11287)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-10-10 20:22:07 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 18)
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 96)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 11.5ms | Allocations: 2549)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered layout layouts/application.html.erb (Duration: 57.4ms | Allocations: 9319)
+Completed 200 OK in 61ms (Views: 59.2ms | ActiveRecord: 0.0ms | Allocations: 10487)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-10-10 20:22:09 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1743)
+  Rendered layouts/_navigation.html.erb (Duration: 0.3ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 8312)
+Completed 200 OK in 17ms (Views: 14.6ms | ActiveRecord: 0.0ms | Allocations: 9024)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-10-10 20:22:10 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 7.3ms | Allocations: 2293)
+  Rendered layouts/_navigation.html.erb (Duration: 8.3ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 186.8ms | Allocations: 8871)
+Completed 200 OK in 193ms (Views: 190.6ms | ActiveRecord: 0.0ms | Allocations: 9444)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-10-10 20:22:44 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.2ms | Allocations: 14)
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 10.1ms | Allocations: 2293)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 837.5ms | Allocations: 47367)
+Completed 200 OK in 844ms (Views: 839.6ms | ActiveRecord: 0.0ms | Allocations: 47926)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-10-10 20:22:47 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1738)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 8452)
+Completed 200 OK in 15ms (Views: 13.2ms | ActiveRecord: 0.0ms | Allocations: 9047)
+
+
+Started GET "/users/password/new" for ::1 at 2022-10-10 20:22:49 +0100
+Processing by Devise::PasswordsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 18)
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 168)
+  Rendered devise/passwords/new.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1533)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered layout layouts/application.html.erb (Duration: 15.7ms | Allocations: 8463)
+Completed 200 OK in 20ms (Views: 18.2ms | ActiveRecord: 0.0ms | Allocations: 9686)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-10-10 20:22:50 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1780)
+  Rendered layouts/_navigation.html.erb (Duration: 0.2ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 143.0ms | Allocations: 8465)
+Completed 200 OK in 149ms (Views: 145.2ms | ActiveRecord: 0.0ms | Allocations: 9171)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-10-10 20:22:52 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2294)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 20.7ms | Allocations: 8914)
+Completed 200 OK in 22ms (Views: 21.3ms | ActiveRecord: 0.0ms | Allocations: 9481)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-10-10 20:25:32 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.2ms | Allocations: 14)
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 17.5ms | Allocations: 2293)
+  Rendered layouts/_navigation.html.erb (Duration: 0.3ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 50.0ms | Allocations: 8949)
+Completed 200 OK in 62ms (Views: 53.6ms | ActiveRecord: 0.0ms | Allocations: 9523)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-10-10 20:25:34 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1738)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 27.0ms | Allocations: 8354)
+Completed 200 OK in 30ms (Views: 27.6ms | ActiveRecord: 0.0ms | Allocations: 8944)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-10-10 20:25:35 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 14)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2293)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 8908)
+Completed 200 OK in 19ms (Views: 17.3ms | ActiveRecord: 0.0ms | Allocations: 9481)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-10-10 20:26:47 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 10.1ms | Allocations: 2293)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 880.8ms | Allocations: 47646)
+Completed 200 OK in 887ms (Views: 886.3ms | ActiveRecord: 0.0ms | Allocations: 48214)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-10-10 20:26:49 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.3ms | Allocations: 131)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 24.2ms | Allocations: 1738)
+  Rendered layouts/_navigation.html.erb (Duration: 0.3ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 43.4ms | Allocations: 8398)
+Completed 200 OK in 49ms (Views: 45.3ms | ActiveRecord: 0.0ms | Allocations: 8999)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-10-10 20:26:50 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered devise/shared/_links.html.erb (Duration: 0.1ms | Allocations: 78)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 2293)
+  Rendered layouts/_navigation.html.erb (Duration: 0.1ms | Allocations: 44)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 8952)
+Completed 200 OK in 17ms (Views: 14.6ms | Allocations: 9495)
 
 
