@@ -1512,3 +1512,31 @@ Processing by RegistrationsController#new as HTML
 Completed 200 OK in 17ms (Views: 14.6ms | Allocations: 9495)
 
 
+Started GET "/users/sign_up" for ::1 at 2022-10-11 12:21:17 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 15.5ms | Allocations: 212)
+  Rendered devise/shared/_links.html.erb (Duration: 7.6ms | Allocations: 491)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 158.3ms | Allocations: 3554)
+  Rendered layouts/navigation/_header.html.erb (Duration: 1.6ms | Allocations: 174)
+  Rendered layouts/navigation/_collapsible_elements.html.erb (Duration: 0.7ms | Allocations: 103)
+  Rendered layouts/_navigation.html.erb (Duration: 7.4ms | Allocations: 660)
+  Rendered layout layouts/application.html.erb (Duration: 216.4ms | Allocations: 11392)
+Completed 200 OK in 328ms (Views: 295.7ms | Allocations: 12737)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-10-11 12:23:00 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.0ms | Allocations: 212)
+  Rendered devise/shared/_links.html.erb (Duration: 5.0ms | Allocations: 488)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 29.7ms | Allocations: 3548)
+  Rendered layouts/navigation/_header.html.erb (Duration: 0.6ms | Allocations: 174)
+  Rendered layouts/navigation/_collapsible_elements.html.erb (Duration: 21.3ms | Allocations: 444)
+  Rendered layouts/_navigation.html.erb (Duration: 23.9ms | Allocations: 992)
+  Rendered layout layouts/application.html.erb (Duration: 117.0ms | Allocations: 11716)
+Completed 200 OK in 144ms (Views: 135.0ms | Allocations: 13142)
+
+
