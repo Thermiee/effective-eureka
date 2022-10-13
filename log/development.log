@@ -1917,3 +1917,39 @@ Processing by Devise::SessionsController#create as TURBO_STREAM
 Completed 401 Unauthorized in 4ms (ActiveRecord: 0.4ms | Allocations: 1596)
 
 
+Started GET "/" for ::1 at 2022-10-13 12:42:12 +0100
+  
+Zeitwerk::NameError (expected file /Users/mereoleona/Documents/Github/effective-eureka/app/helpers/navigation_helper.rb to define constant NavigationHelper, but didn't
+
+      raise Zeitwerk::NameError.new("expected file #{file} to define constant #{cpath}, but didn't", cref.last)
+      ^^^^^):
+  
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/pages_controller.rb:1:in `<main>'
+Started GET "/" for ::1 at 2022-10-13 12:50:55 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 124)
+  Rendered layouts/navigation/_header.html.erb (Duration: 2.1ms | Allocations: 211)
+  Rendered layouts/navigation/_collapsible_elements.html.erb (Duration: 35.7ms | Allocations: 4983)
+  Rendered layouts/_navigation.html.erb (Duration: 43.1ms | Allocations: 5571)
+  Rendered layout layouts/application.html.erb (Duration: 131.4ms | Allocations: 28536)
+Completed 500 Internal Server Error in 138ms (Allocations: 29485)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `collapsible_links_partial_path' for #<ActionView::Base:0x00000000017de0>
+
+      '.freeze;@output_buffer.append=( render collapsible_links_partial_path );@output_buffer.safe_append='
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^):
+    1: <!-- Collect the nav links, forms, and other content for toggling -->
+    2: <div class="collapse navbar-collapse navbar-right" id="navbar-collapsible-content">
+    3:     <ul class="nav navbar-nav ">
+    4:       <%= render collapsible_links_partial_path %>
+    5:     </ul>
+    6:   </div><!-- navbar-collapse -->
+  
+app/views/layouts/navigation/_collapsible_elements.html.erb:4
+app/views/layouts/_navigation.html.erb:12
+app/views/layouts/application.html.erb:14
