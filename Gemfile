@@ -82,7 +82,7 @@ group :test do
   gem 'headless'
   gem 'poltergeist'
   gem 'rails-controller-testing'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.6'
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
