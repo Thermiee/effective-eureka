@@ -2691,3 +2691,51 @@ Started GET "/users/sign_out" for ::1 at 2022-10-19 19:57:58 +0100
   
 ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
   
+  [1m[35m (36.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6521444561908969980)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (5.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePosts (20221019190308)
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (181.4ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "title" character varying, "content" text, "category_id" bigint, "user_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE INDEX "index_posts_on_category_id" ON "posts" ("category_id")[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221019190308"]]
+  [1m[36mTRANSACTION (46.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCategories (20221019190314)
+  [1m[36mTRANSACTION (81.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (129.1ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "name" character varying, "branch" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221019190314"]]
+  [1m[36mTRANSACTION (33.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (45.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6521444561908969980)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2022-10-20 10:13:11 +0100
+Started GET "/" for ::1 at 2022-10-20 10:13:13 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 12)
+  Rendered layouts/navigation/_header.html.erb (Duration: 2.3ms | Allocations: 92)
+  [1m[36mUser Load (100.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/navigation_helper.rb:3:in `collapsible_links_partial_path'
+  Rendered layouts/navigation/collapsible_elements/_signed_in_links.html.erb (Duration: 1.3ms | Allocations: 156)
+  Rendered layouts/navigation/_collapsible_elements.html.erb (Duration: 145.1ms | Allocations: 4778)
+  Rendered layouts/_navigation.html.erb (Duration: 147.8ms | Allocations: 4993)
+  Rendered layout layouts/application.html.erb (Duration: 244.0ms | Allocations: 27608)
+Completed 200 OK in 267ms (Views: 160.4ms | ActiveRecord: 101.1ms | Allocations: 28246)
+
+
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 12)
+  Rendered layouts/navigation/_header.html.erb (Duration: 4.5ms | Allocations: 92)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/navigation_helper.rb:3:in `collapsible_links_partial_path'
+  Rendered layouts/navigation/collapsible_elements/_signed_in_links.html.erb (Duration: 0.3ms | Allocations: 156)
+  Rendered layouts/navigation/_collapsible_elements.html.erb (Duration: 576.5ms | Allocations: 22402)
+  Rendered layouts/_navigation.html.erb (Duration: 582.4ms | Allocations: 22617)
+  Rendered layout layouts/application.html.erb (Duration: 729.5ms | Allocations: 44937)
+Completed 200 OK in 734ms (Views: 175.4ms | ActiveRecord: 557.4ms | Allocations: 45586)
+
+
