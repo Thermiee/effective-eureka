@@ -19180,3 +19180,108 @@ Processing by PagesController#index as HTML
 Completed 200 OK in 23ms (Views: 21.1ms | ActiveRecord: 0.8ms | Allocations: 12717)
 
 
+Started GET "/" for ::1 at 2022-10-20 11:13:04 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/views/pages/index.html.erb:7
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:8
+  Rendered collection of posts/_post.html.erb [5 times] (Duration: 8.1ms | Allocations: 3793)
+  Rendered pages/index.html.erb within layouts/application (Duration: 13.2ms | Allocations: 4553)
+  Rendered layouts/navigation/_header.html.erb (Duration: 0.1ms | Allocations: 45)
+  Rendered layouts/navigation/collapsible_elements/_non_signed_in_links.html.erb (Duration: 0.1ms | Allocations: 62)
+  Rendered layouts/navigation/_collapsible_elements.html.erb (Duration: 0.5ms | Allocations: 193)
+  Rendered layouts/_navigation.html.erb (Duration: 1.0ms | Allocations: 360)
+  Rendered layout layouts/application.html.erb (Duration: 866.3ms | Allocations: 59905)
+Completed 200 OK in 868ms (Views: 865.9ms | ActiveRecord: 1.0ms | Allocations: 60184)
+
+
+Started GET "/" for ::1 at 2022-10-20 11:14:56 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/views/pages/index.html.erb:7
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:8
+  Rendered collection of posts/_post.html.erb [5 times] (Duration: 7.2ms | Allocations: 3793)
+  Rendered pages/index.html.erb within layouts/application (Duration: 9.4ms | Allocations: 4554)
+  Rendered layouts/navigation/_header.html.erb (Duration: 0.1ms | Allocations: 45)
+  Rendered layouts/navigation/collapsible_elements/_non_signed_in_links.html.erb (Duration: 0.4ms | Allocations: 62)
+  Rendered layouts/navigation/_collapsible_elements.html.erb (Duration: 0.7ms | Allocations: 193)
+  Rendered layouts/_navigation.html.erb (Duration: 1.1ms | Allocations: 360)
+  Rendered layout layouts/application.html.erb (Duration: 131.3ms | Allocations: 40186)
+Completed 200 OK in 133ms (Views: 130.8ms | ActiveRecord: 0.9ms | Allocations: 40473)
+
+
+Started GET "/" for ::1 at 2022-10-20 11:15:20 +0100
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPost Load (41.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/views/pages/index.html.erb:7
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:8
+  Rendered collection of posts/_post.html.erb [5 times] (Duration: 56.4ms | Allocations: 15308)
+  Rendered pages/index.html.erb within layouts/application (Duration: 124.0ms | Allocations: 22494)
+  Rendered layouts/navigation/_header.html.erb (Duration: 0.9ms | Allocations: 173)
+  Rendered layouts/navigation/collapsible_elements/_non_signed_in_links.html.erb (Duration: 0.7ms | Allocations: 191)
+  Rendered layouts/navigation/_collapsible_elements.html.erb (Duration: 3.3ms | Allocations: 611)
+  Rendered layouts/_navigation.html.erb (Duration: 5.5ms | Allocations: 1170)
+  Rendered layout layouts/application.html.erb (Duration: 324.2ms | Allocations: 96178)
+Completed 200 OK in 345ms (Views: 276.1ms | ActiveRecord: 52.5ms | Allocations: 102604)
+
+
+Started GET "/" for ::1 at 2022-10-20 11:15:22 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/views/pages/index.html.erb:7
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:8
+  Rendered collection of posts/_post.html.erb [5 times] (Duration: 8.4ms | Allocations: 3874)
+  Rendered pages/index.html.erb within layouts/application (Duration: 12.4ms | Allocations: 4733)
+  Rendered layouts/navigation/_header.html.erb (Duration: 0.1ms | Allocations: 45)
+  Rendered layouts/navigation/collapsible_elements/_non_signed_in_links.html.erb (Duration: 0.1ms | Allocations: 62)
+  Rendered layouts/navigation/_collapsible_elements.html.erb (Duration: 0.4ms | Allocations: 211)
+  Rendered layouts/_navigation.html.erb (Duration: 0.7ms | Allocations: 378)
+  Rendered layout layouts/application.html.erb (Duration: 22.9ms | Allocations: 12326)
+Completed 200 OK in 24ms (Views: 22.7ms | ActiveRecord: 1.1ms | Allocations: 12679)
+
+
