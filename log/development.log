@@ -2739,3 +2739,18 @@ Processing by PagesController#index as HTML
 Completed 200 OK in 734ms (Views: 175.4ms | ActiveRecord: 557.4ms | Allocations: 45586)
 
 
+Started GET "/" for ::1 at 2022-10-20 10:33:28 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 7.4ms | Allocations: 137)
+  Rendered layouts/navigation/_header.html.erb (Duration: 1.6ms | Allocations: 211)
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/navigation_helper.rb:3:in `collapsible_links_partial_path'
+  Rendered layouts/navigation/collapsible_elements/_signed_in_links.html.erb (Duration: 1.3ms | Allocations: 341)
+  Rendered layouts/navigation/_collapsible_elements.html.erb (Duration: 127.9ms | Allocations: 8037)
+  Rendered layouts/_navigation.html.erb (Duration: 131.7ms | Allocations: 8625)
+  Rendered layout layouts/application.html.erb (Duration: 1393.1ms | Allocations: 78057)
+Completed 200 OK in 1403ms (Views: 1396.4ms | ActiveRecord: 62.2ms | Allocations: 79030)
+
+
