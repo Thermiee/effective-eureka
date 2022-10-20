@@ -1,3 +1,4 @@
+require 'faker'
 def seed_users
     user_id = 0
     10.times do 
