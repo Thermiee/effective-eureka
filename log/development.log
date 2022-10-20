@@ -19285,3 +19285,29 @@ Processing by PagesController#index as HTML
 Completed 200 OK in 24ms (Views: 22.7ms | ActiveRecord: 1.1ms | Allocations: 12679)
 
 
+Started GET "/" for ::1 at 2022-10-20 11:17:26 +0100
+Processing by PagesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/index.html.erb within layouts/application
+  [1m[36mPost Load (0.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" LIMIT $1[0m  [["LIMIT", 5]]
+  ↳ app/views/pages/index.html.erb:7
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/posts/_post.html.erb:8
+  Rendered collection of posts/_post.html.erb [5 times] (Duration: 38.3ms | Allocations: 9182)
+  Rendered pages/index.html.erb within layouts/application (Duration: 93.5ms | Allocations: 12148)
+  Rendered layouts/navigation/_header.html.erb (Duration: 0.1ms | Allocations: 50)
+  Rendered layouts/navigation/collapsible_elements/_non_signed_in_links.html.erb (Duration: 0.1ms | Allocations: 68)
+  Rendered layouts/navigation/_collapsible_elements.html.erb (Duration: 0.7ms | Allocations: 242)
+  Rendered layouts/_navigation.html.erb (Duration: 1.3ms | Allocations: 415)
+  Rendered layout layouts/application.html.erb (Duration: 126.3ms | Allocations: 35193)
+Completed 200 OK in 146ms (Views: 72.9ms | ActiveRecord: 55.1ms | Allocations: 37973)
+
+

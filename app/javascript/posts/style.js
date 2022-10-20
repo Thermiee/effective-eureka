@@ -28,7 +28,7 @@ $(document).on('turbolinks:load', function() {
 });
 
 var colorSet = randomColorSet();
-mode = Math.floor(Math.random() * 2);
+var mode = Math.floor(Math.random() * 2);
 
 // Randomly returns a color scheme
 function randomColorSet() {
@@ -47,3 +47,4 @@ function randomColorSet() {
 function randomColor() {
     var color = colorSet[Math.floor(Math.random() * colorSet.length)];
     return color;
+}
