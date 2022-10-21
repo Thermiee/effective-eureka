@@ -79,11 +79,11 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
+  gem 'faker'
   gem 'headless'
   gem 'poltergeist'
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 3.6'
   gem 'selenium-webdriver'
   gem 'webdrivers'
-  gem 'faker'
 end
